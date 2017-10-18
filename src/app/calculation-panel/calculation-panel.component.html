@@ -1,36 +1,46 @@
 <div>
   <div class="col-xs-1">
-      <button mat-button>
-          <md-icon>
-              <i class="material-icons">chevron_left</i>
-            </md-icon>
-      </button>
+    <button mat-button>
+      <md-icon>
+        <i class="material-icons">chevron_left</i>
+      </md-icon>
+    </button>
   </div>
 
   <div class="col-xs-2">
-   <div class="menu-name">
-     Валюта вклада
-   </div>
-   
-   <div>
+    <div class="menu-name">
+      Валюта вклада
+    </div>
+
+    <div>
       <button mat-button>
-          <p style="font-size:40px;color:rgb(69, 175, 189)">₽</p>
+        <p style="font-size:40px;color:rgb(69, 175, 189)">₽</p>
       </button>
       <button mat-button>
-          <p style="font-size:40px;color:rgb(69, 175, 189)">$</p>
+        <p style="font-size:40px;color:rgb(69, 175, 189)">$</p>
       </button>
       <button mat-button>
-          <p style="font-size:40px;color:rgb(69, 175, 189)">€</p>
+        <p style="font-size:40px;color:rgb(69, 175, 189)">€</p>
       </button>
-   </div>
+    </div>
   </div>
 
   <div class="col-xs-3">
-    djads d ad dad as ad
+    <div class="menu-name">
+      Сумма вклада
+    </div>
+    <mat-slider min="100000" max="2000000" value="300000" color="accent"></mat-slider>
   </div>
 
   <div class="col-xs-3">
-    djads d ad dad as ad
+      <div class="menu-name">
+          Срок
+        </div>
+        <mat-slider min="6" max="60" value="24" color="accent"></mat-slider>
+        <div>
+          <mat-checkbox></mat-checkbox>
+          <mat-checkbox></mat-checkbox>
+        </div>
   </div>
 
   <div class="col-xs-3">

@@ -11,7 +11,7 @@ import { PageNotAvailableComponent } from './page-not-available/page-not-availab
 import { CarouselComponent } from './carousel/carousel.component';
 
 // angular material
-import { MatButtonModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatMenuModule, MatSliderModule, MatCheckboxModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // primeng
@@ -20,6 +20,9 @@ import { ToolbarModule, ButtonModule } from 'primeng/primeng';
 // ngx-bootstrap
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CalculationPanelComponent } from './calculation-panel/calculation-panel.component';
+
+// hummer js
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { CalculationPanelComponent } from './calculation-panel/calculation-panel
     ReactiveFormsModule,
     JsonpModule,
     ButtonModule,
+    MatSliderModule,
+    MatCheckboxModule,
     CarouselModule.forRoot()
   ],
   providers: [],

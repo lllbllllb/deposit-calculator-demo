@@ -16,3 +16,14 @@
           font-size: 18px;
           color: rgb(141, 141, 141);
 }
+
+mat-slider {
+          width: 100%;
+          color: rgb(69, 175, 189);
+}
+
+.mat-checkbox {
+          /* background-color: rgb(69, 175, 189); */
+          border: 1px solid;
+
+}
