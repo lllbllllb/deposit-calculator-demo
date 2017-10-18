@@ -1,0 +1,47 @@
+.mat-raised-button {
+          background-color: transparent;
+          color:rgb(69, 175, 189);
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          border: 2px solid;
+          border-color: rgb(69, 175, 189);
+          font-weight: bold;
+          
+          /* padding:5px; */
+          /* font-size: small; */
+}
+
+.img-wrap {
+          position: relative;
+}
+
+.img-wrap #first-slide-content {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          margin-bottom: 50px;
+          margin-left: 200px;
+          /* width: 100%; */
+}
+
+.business-title {
+          font-size: xx-large;
+          color: black;
+
+}
+
+.business-content {
+          font-size: x-large;
+          color: rgb(77, 52, 52);
+}
+
+.footer-content {
+          font-size: x-small;
+          color: rgb(148, 145, 145);
+          line-height:0.6;
+}
+
+.delimeter {
+          margin: 25px;
+}

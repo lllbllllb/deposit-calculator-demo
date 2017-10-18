@@ -1,0 +1,45 @@
+:host /deep/ .ui-toolbar {
+          background-color: transparent;
+          border-color: transparent;
+          height: 80px;
+          /* width: 110%;         */
+}
+
+.header-logo { 
+          /* border: 1px solid; */
+          /* border-color: red; */
+          
+}
+
+.header-button {
+          margin-top: 30px;
+          /* border: 1px solid; */
+          /* border-color: red; */
+}
+
+.ib-header-button {
+          margin-top: 20px;
+          /* border: 1px solid; */
+          /* border-color: red; */
+}
+
+.mat-button {
+          font-size: medium;
+          font-weight: bold;
+          color: rgb(69, 175, 189);
+          /* padding:5px; */
+}
+
+.mat-raised-button {
+          background-color: rgb(69, 175, 189);
+          color:white;
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          /* padding:5px; */
+          /* font-size: small; */
+}
+
+.material-icons {
+          font-size: 30px;
+}

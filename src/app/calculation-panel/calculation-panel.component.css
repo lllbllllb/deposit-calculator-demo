@@ -1,0 +1,18 @@
+.mat-button {
+          /* font-size: 30pt; */
+          margin: 0;
+          padding: 0;
+          min-width: 40px;
+          line-height: 40px;
+}
+
+.material-icons {
+          padding: 0;
+          font-size: 60px;
+          color: rgb(69, 175, 189);
+}
+
+.menu-name {
+          font-size: 18px;
+          color: rgb(141, 141, 141);
+}
