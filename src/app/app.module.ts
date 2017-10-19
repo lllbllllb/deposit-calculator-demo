@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,13 +11,20 @@ import { DepositCalculatorComponent } from './deposit-calculator/deposit-calcula
 import { PageNotAvailableComponent } from './page-not-available/page-not-available.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 // angular material
-import { MatButtonModule,
+import {
+  MatButtonModule,
   MatMenuModule,
   MatSliderModule,
   MatCheckboxModule,
   MatButtonToggleModule,
-  MatTableModule } from '@angular/material';
+  MatTableModule,
+  MatInputModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // primeng
@@ -38,7 +46,7 @@ import 'hammerjs';
     PageNotAvailableComponent,
     CarouselComponent,
     CalculationPanelComponent
-],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +62,10 @@ import 'hammerjs';
     MatCheckboxModule,
     MatButtonToggleModule,
     MatTableModule,
-    CarouselModule.forRoot()
+    MatInputModule,
+    CoreModule,
+    CarouselModule.forRoot(),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [],
   bootstrap: [AppComponent]

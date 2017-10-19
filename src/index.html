@@ -18,7 +18,7 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- fixing element on top -->
+  <!-- fixing element on the top -->
   <script>
     var h_hght = 150; // высота шапки
     var h_mrg = 0;    // отступ когда шапка уже не видна
@@ -31,7 +31,7 @@
 
       var top = $(this).scrollTop();
 
-      if (top == 0) {
+      if (top == 0 || top < 450) {
         elem_header.removeClass('global-white-background');
         elem_calc_panel.removeClass('global-fixed-style');
         elem_calc_panel.css("margin-top","530px");
@@ -51,8 +51,6 @@
           elem_calc_panel.removeClass('global-fixed-style');
           elem_calc_panel.css("margin-top","530px");
           elem_depo_calc_main_content.css("margin-top","0");
-          
-              
         }
       });
 

@@ -23,14 +23,6 @@
           /* color: rgb(69, 175, 189); */
 }
 
-.mat-checkbox {
-          /* background-color: rgb(69, 175, 189); */
-          /* border: 2px solid; */
-          /* border-color: rgb(221, 221, 221); */
-          background-color: rgba(128, 128, 128, 0.15);
-          
-}
-
 .header-button {
           margin-top: 30px;
 }
@@ -59,4 +51,9 @@
 
 .mat-button-toggle-group {
           box-shadow: none !important;          
+}
+
+input {
+          min-width: 0;
+          border: none;
 }

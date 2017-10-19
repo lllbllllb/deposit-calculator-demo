@@ -15,14 +15,14 @@
         </div>
 
         <div>
-          <mat-button-toggle-group>
-            <mat-button-toggle>
+          <mat-button-toggle-group (change)="changeCurrency($event)">
+            <mat-button-toggle value="rur">
               <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
             </mat-button-toggle>
-            <mat-button-toggle>
+            <mat-button-toggle value="usd">
               <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">$</p>
             </mat-button-toggle>
-            <mat-button-toggle>
+            <mat-button-toggle value="eur">
               <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">€</p>
             </mat-button-toggle>
           </mat-button-toggle-group>
@@ -33,10 +33,10 @@
         <div class="menu-name">
           Сумма вклада
         </div>
-        <div style="font-size:30px;color:rgb(69, 175, 189);">
-          6 000 000 рублей
+        <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
+          <input matInput [(ngModel)]="moneyCount">
         </div>
-        <mat-slider min="100000" max="2000000" value="300000" default="1000000" color="accent"></mat-slider>
+        <mat-slider min="100000" max="2000000" [(ngModel)]="moneyCount" step="1" color="accent"></mat-slider>
       </div>
 
       <div class="col-xs-4">
@@ -44,15 +44,18 @@
           Срок
         </div>
         <div style="font-size:30px;color:rgb(69, 175, 189);">
-          12 месяцев
+          {{outputMonth}}
         </div>
-        <mat-slider min="6" max="60" value="24" color="accent"></mat-slider>
+        <mat-slider min="6" max="36" (change)="changeMonthCount($event)" [value]="mounthCount" color="accent"></mat-slider>
         <div>
-          <mat-checkbox></mat-checkbox>
-          <span style="margin:10px" class="menu-name">пополнение</span>
-          <span style="margin-left:13px">
-            <mat-checkbox></mat-checkbox>
-            <span style="margin:10px" class="menu-name">снятие</span>
+          <mat-checkbox>
+            <span style="margin:10px" class="menu-name">пополнение</span>
+          </mat-checkbox>
+
+          <span style="margin-left:50px">
+            <mat-checkbox>
+              <span style="margin:10px" class="menu-name">снятие</span>
+            </mat-checkbox>
           </span>
         </div>
       </div>

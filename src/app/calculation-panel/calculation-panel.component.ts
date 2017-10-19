@@ -1,4 +1,6 @@
+import { Deposit } from './../entities/deposit';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-calculation-panel',
@@ -7,9 +9,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculationPanelComponent implements OnInit {
 
-  constructor() { }
+  moneyCount: number;
+  mounthCount = 12;
+  currency: string;
+  currencies = {
+    'rur': 'руб',
+    'eur': 'евро',
+    'usd': 'долл. США'
+  };
+
+  monthCount: number;
+  outputMonth: string;
+  monthNames = {
+    '1': 'месяц',
+    '2': 'месяца',
+    '3': 'месяцев'
+  };
+
+  deposits: Deposit[];
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.moneyCount = 600000;
+    this.currency = this.currencies['rur'];
+    this.outputMonth = 12 + ' ' + this.monthNames[3];
+
+    this.http.get<Deposit[]>('/api/deposits')
+    .subscribe(deposits => {
+      this.deposits = deposits;
+    });
   }
 
+  changeCurrency(e) {
+    this.currency = this.currencies[e.value];
+  }
+
+  changeMonthCount(e) {
+    const del = e.value % 10;
+    console.log(e.value + ': ' + del);
+    let monthVar = this.monthNames[3];
+    if (del === 1 && e.value !== 11) {
+      monthVar = this.monthNames[1];
+    } else if (del > 1 && del < 5 && e.value < 10 && e.value > 20) {
+      monthVar = this.monthNames[2];
+    }
+    this.outputMonth = e.value + ' ' + monthVar;
+  }
 }
