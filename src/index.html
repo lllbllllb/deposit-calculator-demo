@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>DepositCalculatorDemo</title>
@@ -7,19 +8,60 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
+
   <!-- google icon-font -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
+
   <!-- bootstrap  -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-  
-  <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <!-- <script src="node_modules/jquery/dist/jquery.min.js "></script> -->
-  <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js "></script> -->
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- fixing element on top -->
+  <script>
+    var h_hght = 150; // высота шапки
+    var h_mrg = 0;    // отступ когда шапка уже не видна
+
+    $(function () {
+
+      var elem_header = $('#zenit_header');
+      var elem_calc_panel = $('#zenit_calculation_panel');
+      var elem_depo_calc_main_content = $('#zenit_depo_calc_main_content');
+
+      var top = $(this).scrollTop();
+
+      if (top == 0) {
+        elem_header.removeClass('global-white-background');
+        elem_calc_panel.removeClass('global-fixed-style');
+        elem_calc_panel.css("margin-top","530px");
+        elem_depo_calc_main_content.css("margin-top","0");
+      }
+
+      $(window).scroll(function () {
+        top = $(this).scrollTop();
+
+        if (top > 450) {
+          elem_header.addClass('global-white-background');
+          elem_calc_panel.addClass('global-fixed-style');
+          elem_calc_panel.css("margin-top","80px");
+          elem_depo_calc_main_content.css("margin-top","690px");
+        } else {
+          elem_header.removeClass('global-white-background');
+          elem_calc_panel.removeClass('global-fixed-style');
+          elem_calc_panel.css("margin-top","530px");
+          elem_depo_calc_main_content.css("margin-top","0");
+          
+              
+        }
+      });
+
+    });
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

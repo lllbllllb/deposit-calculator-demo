@@ -2,3 +2,12 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 @import "~primeng/resources/primeng.css";
 @import "~primeng/resources/themes/flick/theme.css";
+
+.global-white-background {
+          background-color: white;
+}
+
+.global-fixed-style {
+          position: fixed;
+          margin-top: 80px;
+}

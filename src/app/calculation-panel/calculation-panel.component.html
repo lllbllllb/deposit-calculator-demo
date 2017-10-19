@@ -1,68 +1,60 @@
-<div>
-  <div class="col-xs-1">
-    <button mat-button style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
-      <md-icon>
-        <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
-      </md-icon>
-    </button>
-  </div>
-
-  <div class="col-xs-2">
-    <div class="menu-name">
-      Валюта вклада
-    </div>
-
-    <div>
-      <mat-button-toggle-group>
-        <mat-button-toggle>
-          <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
-        </mat-button-toggle>
-        <mat-button-toggle>
-          <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">$</p>
-        </mat-button-toggle>
-        <mat-button-toggle>
-          <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">€</p>
-        </mat-button-toggle>
-        </mat-button-toggle-group>
-    </div>
-  </div>
-
-  <div class="col-xs-3">
-    <div class="menu-name">
-      Сумма вклада
-    </div>
-    <div style="font-size:30px;color:rgb(69, 175, 189);">
-      6 000 000 рублей
-    </div>
-    <mat-slider min="100000" max="2000000" value="300000" default="1000000" color="accent"></mat-slider>
-  </div>
-
-  <div class="col-xs-3">
-    <div class="menu-name">
-      Срок
-    </div>
-    <div style="font-size:30px;color:rgb(69, 175, 189);">
-      12 месяцев
-    </div>
-    <mat-slider min="6" max="60" value="24" color="accent"></mat-slider>
-    <div>
-      <mat-checkbox></mat-checkbox>
-      <span style="margin:10px" class="menu-name">пополнение</span>
-      <span style="margin-left:13px">
-        <mat-checkbox></mat-checkbox>
-        <span style="margin:10px" class="menu-name">снятие</span>
-      </span>
-    </div>
-  </div>
-
-  <div class="col-xs-3">
-    <div style="text-align:center">
-      <div class="menu-name" style="margin-top: 8px;line-height:10px;;">
-        <p>~ 35 000 рублей</p>
-        <span>составит ваш доход</span>
+<div id="zenit_calculation_panel" style="background-color: white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2">
+        <button mat-button style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
+          <md-icon>
+            <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
+          </md-icon>
+        </button>
       </div>
-      <div class="ib-header-button" style="margin-top:20px;">
-        <button color="primary" mat-raised-button>Посмотреть</button>
+
+      <div class="col-xs-2">
+        <div class="menu-name">
+          Валюта вклада
+        </div>
+
+        <div>
+          <mat-button-toggle-group>
+            <mat-button-toggle>
+              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
+            </mat-button-toggle>
+            <mat-button-toggle>
+              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">$</p>
+            </mat-button-toggle>
+            <mat-button-toggle>
+              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">€</p>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="menu-name">
+          Сумма вклада
+        </div>
+        <div style="font-size:30px;color:rgb(69, 175, 189);">
+          6 000 000 рублей
+        </div>
+        <mat-slider min="100000" max="2000000" value="300000" default="1000000" color="accent"></mat-slider>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="menu-name">
+          Срок
+        </div>
+        <div style="font-size:30px;color:rgb(69, 175, 189);">
+          12 месяцев
+        </div>
+        <mat-slider min="6" max="60" value="24" color="accent"></mat-slider>
+        <div>
+          <mat-checkbox></mat-checkbox>
+          <span style="margin:10px" class="menu-name">пополнение</span>
+          <span style="margin-left:13px">
+            <mat-checkbox></mat-checkbox>
+            <span style="margin:10px" class="menu-name">снятие</span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
