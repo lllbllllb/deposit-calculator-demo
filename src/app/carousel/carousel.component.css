@@ -7,9 +7,8 @@
           border: 2px solid;
           border-color: rgb(69, 175, 189);
           font-weight: bold;
-          
-          /* padding:5px; */
-          /* font-size: small; */
+          width: 130px;          
+          box-shadow: none !important;
 }
 
 .img-wrap {
@@ -21,7 +20,7 @@
           left: 0;
           bottom: 0;
           margin-bottom: 50px;
-          margin-left: 200px;
+          margin-left: 20vw;;
           /* width: 100%; */
 }
 
@@ -42,6 +41,8 @@
           line-height:0.6;
 }
 
+
 .delimeter {
           margin: 25px;
+          width: 100%;
 }

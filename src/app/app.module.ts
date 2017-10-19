@@ -11,7 +11,12 @@ import { PageNotAvailableComponent } from './page-not-available/page-not-availab
 import { CarouselComponent } from './carousel/carousel.component';
 
 // angular material
-import { MatButtonModule, MatMenuModule, MatSliderModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule,
+  MatMenuModule,
+  MatSliderModule,
+  MatCheckboxModule,
+  MatButtonToggleModule,
+  MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // primeng
@@ -47,6 +52,8 @@ import 'hammerjs';
     ButtonModule,
     MatSliderModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
+    MatTableModule,
     CarouselModule.forRoot()
   ],
   providers: [],

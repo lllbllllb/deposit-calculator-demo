@@ -8,6 +8,7 @@
 .header-logo { 
           /* border: 1px solid; */
           /* border-color: red; */
+          /* background: rgba(0, 170, 238, 0.5); */
           
 }
 
@@ -28,6 +29,8 @@
           font-weight: bold;
           color: rgb(69, 175, 189);
           /* padding:5px; */
+          background-color: rgba(128, 128, 128, 0.1);
+          border-radius: 50px;
 }
 
 .mat-raised-button {
@@ -36,10 +39,17 @@
           box-shadow: 0;
           border-radius: 50px;
           height:50px;
-          /* padding:5px; */
+          width: 130px;
+          box-shadow: none !important;
+                    /* padding:5px; */
           /* font-size: small; */
 }
 
 .material-icons {
           font-size: 30px;
+}
+
+.mat-menut {
+          background: white !important;
+          color: black;
 }
