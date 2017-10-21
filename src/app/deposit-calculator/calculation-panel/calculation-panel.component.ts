@@ -1,4 +1,4 @@
-import { Deposit } from './../entities/deposit';
+import { Deposit } from './../../entities/deposit';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,7 +13,7 @@ export class CalculationPanelComponent implements OnInit {
   mounthCount = 12;
   currency: string;
   currencies = {
-    'rur': 'руб',
+    'rub': 'руб',
     'eur': 'евро',
     'usd': 'долл. США'
   };
@@ -32,7 +32,7 @@ export class CalculationPanelComponent implements OnInit {
 
   ngOnInit() {
     this.moneyCount = 600000;
-    this.currency = this.currencies['rur'];
+    this.currency = 'rub';
     this.outputMonth = 12 + ' ' + this.monthNames[3];
 
     this.http.get<Deposit[]>('/api/deposits')
@@ -42,7 +42,14 @@ export class CalculationPanelComponent implements OnInit {
   }
 
   changeCurrency(e) {
-    this.currency = this.currencies[e.value];
+    console.log(this.currency + '1');
+    this.currency = e.value;
+    console.log(this.currency);
+  }
+
+  changeMoneyCount(e) {
+    this.moneyCount = e.value;
+  //  console.log(e.value);
   }
 
   changeMonthCount(e) {

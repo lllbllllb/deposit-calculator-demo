@@ -15,8 +15,8 @@
         </div>
 
         <div>
-          <mat-button-toggle-group (change)="changeCurrency($event)">
-            <mat-button-toggle value="rur">
+          <mat-button-toggle-group [value]="currency" (change)="changeCurrency($event)">
+            <mat-button-toggle value="rub">
               <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
             </mat-button-toggle>
             <mat-button-toggle value="usd">
@@ -36,7 +36,7 @@
         <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
           <input matInput [(ngModel)]="moneyCount">
         </div>
-        <mat-slider min="100000" max="2000000" [(ngModel)]="moneyCount" step="1" color="accent"></mat-slider>
+        <mat-slider min="100000" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
       </div>
 
       <div class="col-xs-4">
@@ -46,7 +46,7 @@
         <div style="font-size:30px;color:rgb(69, 175, 189);">
           {{outputMonth}}
         </div>
-        <mat-slider min="6" max="36" (change)="changeMonthCount($event)" [value]="mounthCount" color="accent"></mat-slider>
+        <mat-slider min="6" max="36" (input)="changeMonthCount($event)" [value]="mounthCount" color="accent"></mat-slider>
         <div>
           <mat-checkbox>
             <span style="margin:10px" class="menu-name">пополнение</span>
