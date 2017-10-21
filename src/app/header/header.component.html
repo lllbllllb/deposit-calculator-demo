@@ -1,69 +1,73 @@
 <p-toolbar>
-  <div class="hidden-xs">
-    <div class="col-sm-2 header-log">
-      <img src="http://toplogos.ru/images/logo-bank-zenit.png" style="height:70px;">
-    </div>
+  <div class="container">
+    <div class="row">
+      <div class="hidden-xs">
+        <div class="col-sm-2 header-log">
+          <img src="http://toplogos.ru/images/logo-bank-zenit.png" style="height:70px;">
+        </div>
 
-    <div class="col-sm-9 header-button" style="padding:0">
-      <button mat-button>ЧАСТНЫМ ЛИЦАМ</button>
-      <button mat-button>БИЗНЕСУ</button>
+        <div class="col-sm-8 header-button" style="padding:0">
+          <button mat-button>ЧАСТНЫМ ЛИЦАМ</button>
+          <button mat-button>БИЗНЕСУ</button>
 
-      <button style="color:black" mat-button>О БАНКЕ</button>
+          <button style="color:black" mat-button>О БАНКЕ</button>
 
-      <span>
-        <button style="color:black" mat-button>БАНКОМАТЫ И ОФИСЫ</button>
-        <button style="color:black" mat-button>КЛИЕНТ-БАНК</button>
-      </span>
-    </div>
+          <span>
+            <button style="color:black" mat-button>БАНКОМАТЫ И ОФИСЫ</button>
+            <button style="color:black" mat-button>КЛИЕНТ-БАНК</button>
+          </span>
+        </div>
 
-    <div class="col-sm-1 ib-header-button">
-      <button color="primary" mat-raised-button>Интернет-банк</button>
-    </div>
-  </div>
-
-  <div class="visible-xs">
-    <div class="col-xs-5 header-logo">
-      <img src="http://toplogos.ru/images/logo-bank-zenit.png" style="height:70px;">
-    </div>
-
-    <div class="col-xs-5" style="margin-top:20px">
-      <button mat-button style="font-size:14px;line-height:0.8">
-        <p>
-          SWITC TO
-        </p>
-        ENGLISH
-      </button>
-    </div>
-
-    <div class="col-xs-1">
-      <div style="margin-top:25px">
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <md-icon>
-            <i class="material-icons">more_vert</i>
-          </md-icon>
-        </button>
+        <div class="col-sm-2 ib-header-button">
+          <button color="primary" mat-raised-button>Интернет-банк</button>
+        </div>
       </div>
 
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span>ЧАСТНЫМ ЛИЦАМ</span>
-        </button>
-        <button mat-menu-item>
-          <span>БИЗНЕСУ</span>
-        </button>
-        <button mat-menu-item>
-          <span>О БАНКЕ</span>
-        </button>
-        <button mat-menu-item>
-          <span>БАНКОМАТЫ И ОФИСЫ</span>
-        </button>
-        <button mat-menu-item>
-          <span>КЛИЕНТ-БАНК</span>
-        </button>
-        <button style="background-color: rgb(69, 175, 189);color:white" mat-menu-item>
-          <span>ИНТЕРНЕТ-БАНК</span>
-        </button>
-      </mat-menu>
+      <div class="visible-xs">
+        <div class="col-xs-5 header-logo">
+          <img src="http://toplogos.ru/images/logo-bank-zenit.png" style="height:70px;">
+        </div>
+
+        <div class="col-xs-5" style="margin-top:20px">
+          <button mat-button style="font-size:14px;line-height:0.8">
+            <p>
+              SWITC TO
+            </p>
+            ENGLISH
+          </button>
+        </div>
+
+        <div class="col-xs-1">
+          <div style="margin-top:25px">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <md-icon>
+                <i class="material-icons">more_vert</i>
+              </md-icon>
+            </button>
+          </div>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>ЧАСТНЫМ ЛИЦАМ</span>
+            </button>
+            <button mat-menu-item>
+              <span>БИЗНЕСУ</span>
+            </button>
+            <button mat-menu-item>
+              <span>О БАНКЕ</span>
+            </button>
+            <button mat-menu-item>
+              <span>БАНКОМАТЫ И ОФИСЫ</span>
+            </button>
+            <button mat-menu-item>
+              <span>КЛИЕНТ-БАНК</span>
+            </button>
+            <button style="background-color: rgb(69, 175, 189);color:white" mat-menu-item>
+              <span>ИНТЕРНЕТ-БАНК</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
     </div>
   </div>
 </p-toolbar>

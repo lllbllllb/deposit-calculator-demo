@@ -9,5 +9,9 @@
 
 .global-fixed-style {
           position: fixed;
-          margin-top: 80px;
 }
+
+.container {
+          margin-left: auto;
+          margin-right: auto;
+  }

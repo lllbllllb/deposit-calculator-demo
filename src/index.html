@@ -18,39 +18,40 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- fixing element on the top -->
+  <!-- stopping element on the top -->
   <script>
-    var h_hght = 150; // высота шапки
-    var h_mrg = 0;    // отступ когда шапка уже не видна
-
+    // 80 px - 'header'
+    // 500px  'carousel'
+    // 10 px - space between 'carousel' and 'menu_panel'
+    // 160px - 'menu_panel'
+    // 10px - space between 'menu_panel' and 'zenit_content_below_menu_panel'
     $(function () {
-
-      var elem_header = $('#zenit_header');
-      var elem_calc_panel = $('#zenit_calculation_panel');
-      var elem_depo_calc_main_content = $('#zenit_depo_calc_main_content');
+      var elem_header = $('#zenit_header_background_80px');
+      var elem_menu_panel = $('#zenit_menu_panel_160px');
+      var elem_main_content = $('#zenit_content_below_menu_panel');
 
       var top = $(this).scrollTop();
 
-      if (top == 0 || top < 450) {
-        elem_header.removeClass('global-white-background');
-        elem_calc_panel.removeClass('global-fixed-style');
-        elem_calc_panel.css("margin-top","530px");
-        elem_depo_calc_main_content.css("margin-top","0");
+      var transparent = 1;
+      var bg_color = 'rgba(255, 255, 255, ' + transparent + ')';
+
+      if (top < 430) {
+        elem_header.css({"opacity":top/430});
+        elem_menu_panel.css({"position":"inherit"});
+        elem_main_content.css({"margin-top":"0"});
       }
 
       $(window).scroll(function () {
+        elem_header.css({"opacity":top/430});
+
         top = $(this).scrollTop();
 
-        if (top > 450) {
-          elem_header.addClass('global-white-background');
-          elem_calc_panel.addClass('global-fixed-style');
-          elem_calc_panel.css("margin-top","80px");
-          elem_depo_calc_main_content.css("margin-top","690px");
+        if (top >= 430) {
+          elem_menu_panel.css({"position":"fixed","top":"80px"});
+          elem_main_content.css({"margin-top":"160px"});
         } else {
-          elem_header.removeClass('global-white-background');
-          elem_calc_panel.removeClass('global-fixed-style');
-          elem_calc_panel.css("margin-top","530px");
-          elem_depo_calc_main_content.css("margin-top","0");
+          elem_menu_panel.css({"position":"inherit"});
+          elem_main_content.css({"margin-top":"0"});
         }
       });
 
