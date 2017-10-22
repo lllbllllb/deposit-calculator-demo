@@ -35,7 +35,7 @@
           border: 2px solid;
           border-color: rgb(69, 175, 189);
           font-weight: bold;
-          width: 130px;          
+          width: 150px;          
           box-shadow: none !important;
 }
 
@@ -46,6 +46,7 @@
           border-radius: 50px;
           height:50px;
           box-shadow: none !important;
+          width: 150px;          
 }
 
 .make-depo-button {
