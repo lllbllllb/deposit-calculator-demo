@@ -23,3 +23,9 @@ ul {
           color: rgb(141, 141, 141);
           margin-bottom: 5px;
 }
+
+.deposits .calculation {
+          margin-top: 20px;          
+          font-size: medium;
+          color: black;
+}

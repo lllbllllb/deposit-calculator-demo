@@ -5,27 +5,31 @@
     <app-calculation-panel (choose)="setUserChoose($event)"></app-calculation-panel>
 </div>
 
-<div id="zenit_content_below_menu_panel" style="padding-top:10px">
+<div id="zenit_content_below_menu_panel" style="padding-top:0">
     <ul class="deposits">
 
-        <li *ngFor="let d of deposits">
+        <li *ngFor="let d of deposits | async">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="depo-title">{{d.name}}</div>
                         <div class="depo-descr">{{d.description}}</div>
                     </div>
-                    <div class="col-sm-1">
-                        qwqw
+                    <div class="col-sm-1 calculation">
+                        {{d.rate}}
                     </div>
-                    <div class="col-sm-2">
-                        qwqw
+                    <div class="col-sm-2 calculation">
+                        {{d.income}}
                     </div>
-                    <div class="col-sm-4">
-                        qwqw
+                    <div class="col-sm-3 calculation">
+                        {{d.amountAfterPeriod}}
                     </div>
-                    <div class="col-sm-1">
-                        qwqw
+                    <div class="col-sm-1 calculation">
+                        {{d.capital}}
+                    </div>
+                    <div class="col-sm-1 calculation">
+                        <div>{{d.termFr}}</div>
+                        <div>{{d.termTo}}</div>
                     </div>
                 </div>
             </div>

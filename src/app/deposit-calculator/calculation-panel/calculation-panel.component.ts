@@ -11,11 +11,6 @@ export class CalculationPanelComponent implements OnInit {
 
   moneyCount: number;
   currency: string;
-  currencies = {
-    'rub': 'руб',
-    'eur': 'евро',
-    'usd': 'долл. США'
-  };
 
   monthCount: number;
   outputMonth: string;
@@ -26,8 +21,9 @@ export class CalculationPanelComponent implements OnInit {
   };
 
   refill: boolean;
-
   withdrawal: boolean;
+
+  minMoneyCount: number;
 
   @Output() choose: EventEmitter<any> = new EventEmitter<any>();
 
@@ -40,10 +36,19 @@ export class CalculationPanelComponent implements OnInit {
     this.refill = true;
     this.withdrawal = false;
     this.outputMonth = this.monthCount + ' ' + this.monthNames[3];
+
+    this.minMoneyCount = 10000;
+
+    this.fireChooseEvent();
   }
 
   changeCurrency(e) {
     this.currency = e.value;
+    this.minMoneyCount = e.value === 'rub' ? 10000 : 300;
+    this.fireChooseEvent();
+  }
+
+  inputMoneyCount() {
     this.fireChooseEvent();
   }
 
@@ -79,9 +84,9 @@ export class CalculationPanelComponent implements OnInit {
     const choose = {
       currency: this.currency,
       moneyCount: this.moneyCount,
-      monttCount: this.monthCount,
+      monthCount: this.monthCount,
       refill: this.refill,
-      withdrawal : this.withdrawal
+      withdrawal: this.withdrawal
     };
 
     this.choose.next(choose);

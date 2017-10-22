@@ -33,9 +33,9 @@
         Сумма вклада
       </div>
       <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
-        <input matInput [(ngModel)]="moneyCount">
+        <input matInput [(ngModel)]="moneyCount" (keyup.enter)="inputMoneyCount()">
       </div>
-      <mat-slider min="100000" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
+      <mat-slider [min]="minMoneyCount" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
     </div>
 
     <div class="col-sm-4">
@@ -45,7 +45,7 @@
       <div style="font-size:30px;color:rgb(69, 175, 189);">
         {{outputMonth}}
       </div>
-      <mat-slider min="6" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
+      <mat-slider min="1" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
       <div>
         <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)">
           <span style="margin:10px" class="menu-name">пополнение</span>
@@ -70,11 +70,14 @@
           <div  class="col-sm-2">
             Доход
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             Сумма через {{outputMonth}}
           </div>
           <div class="col-sm-1">
             Капитал
+          </div>
+          <div class="col-sm-1">
+            Срок
           </div>
     </div>
 
