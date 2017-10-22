@@ -92,7 +92,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 7,
-        name: 'Великолепная семерка»',
+        name: 'Великолепная семерка',
         rub: 8,
         usd: 2,
         eur: 1.2,

@@ -4,8 +4,7 @@
 
 <div id="zenit_content_below_menu_panel" style="padding-top:0">
     <ul class="deposits">
-
-        <li *ngFor="let d of deposits | async">
+        <li *ngFor="let d of deposits | async" (click)="onSelectDeposit(d)">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">

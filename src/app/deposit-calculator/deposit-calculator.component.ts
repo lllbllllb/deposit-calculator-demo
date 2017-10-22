@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Deposit } from './../entities/deposit';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +13,8 @@ import 'rxjs/add/observable/of';
 })
 export class DepositCalculatorComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 
   allDeposits: Deposit[];
   deposits: Observable<CalculatedDeposit[]>;
@@ -36,7 +38,6 @@ export class DepositCalculatorComponent implements OnInit {
 
         this.fillCepositsTable(this.allDeposits);
       });
-
   }
 
   setUserChoose(e) {
@@ -50,8 +51,6 @@ export class DepositCalculatorComponent implements OnInit {
       this.fillCepositsTable(this.allDeposits);
     }
   }
-
-  // }
 
   fillCepositsTable(allDeposits: Deposit[]) {
     const buffer = [];
@@ -84,6 +83,10 @@ export class DepositCalculatorComponent implements OnInit {
       }
     }
     this.deposits = Observable.of(buffer);
+  }
+
+  onSelectDeposit(deposit: Deposit) {
+    this.router.navigate(['deposits', deposit.name]);
   }
 }
 

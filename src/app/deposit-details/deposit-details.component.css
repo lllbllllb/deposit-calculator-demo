@@ -1,0 +1,72 @@
+/* p {
+          margin-top:10px;
+          font-size: medium;
+          color: white;
+          background-color: rgb(69, 175, 189);
+} */
+
+.table-header {
+          margin-bottom:10px;
+          font-size: medium;
+          color: white;
+          background-color: rgb(69, 175, 189);
+}
+
+
+.depo-title {
+          margin-top: 5px;          
+          font-size: x-large;
+          color: rgb(69, 175, 189);
+          margin-bottom: 10px;
+}
+
+.depo-descr {
+          font-size: medium;
+          color: rgb(141, 141, 141);
+          margin-bottom: 5px;
+}
+
+.back-button {
+          background-color: transparent;
+          color:rgb(69, 175, 189);
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          border: 2px solid;
+          border-color: rgb(69, 175, 189);
+          font-weight: bold;
+          width: 130px;          
+          box-shadow: none !important;
+}
+
+.back-button:hover {
+          background-color: rgb(69, 175, 189);
+          color:white;
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          box-shadow: none !important;
+}
+
+.make-depo-button {
+          background-color: rgb(69, 175, 189);
+          color:white;
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          width: 200px;          
+          box-shadow: none !important;
+}
+
+.make-depo-button:hover {
+          background-color: transparent;
+          color:rgb(69, 175, 189);
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          border: 2px solid;
+          border-color: rgb(69, 175, 189);
+          font-weight: bold;
+          width: 200px;          
+          box-shadow: none !important;
+}

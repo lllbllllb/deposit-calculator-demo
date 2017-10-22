@@ -1,0 +1,76 @@
+<div id="zenit_content_below_menu_panel" style="padding-top:0">
+    <div class="container">
+        <div class="row table-header">
+            <div class="col-sm-3">
+                <P>Наименование депозита</P>
+            </div>
+            <div class="col-sm-1">
+                <P>Валюта</P>
+            </div>
+            <div class="col-sm-1">
+                <P>Процентная ставка</P>
+            </div>
+            <div class="col-sm-2">
+                <P>Допустимая сумма вклада</P>
+            </div>
+            <div class="col-sm-1">
+                <P>Пополнение</P>
+            </div>
+            <div class="col-sm-1">
+                <P>Снятие</P>
+            </div>
+            <div class="col-sm-1">
+                <P>Капитал</P>
+            </div>
+            <div class="col-sm-2">
+                <P>Сроки вклада</P>
+            </div>
+        </div>
+
+        <div class="row">
+            <div *ngIf="deposit">
+                <div class="col-sm-3">
+                    <div class="depo-title">{{deposit.name}}</div>
+                    <div class="depo-descr">{{deposit.description}}</div>
+                </div>
+                <div class="col-sm-1">
+                    <div *ngIf="deposit.rub" class="depo-descr">₽</div>
+                    <div *ngIf="deposit.usd" class="depo-descr">$</div>
+                    <div *ngIf="deposit.eur" class="depo-descr">€</div>
+                </div>
+                <div class="col-sm-1">
+                    <div *ngIf="deposit.rub" class="depo-descr">{{deposit.rub}}</div>
+                    <div *ngIf="deposit.usd" class="depo-descr">{{deposit.usd}}</div>
+                    <div *ngIf="deposit.eur" class="depo-descr">{{deposit.eur}}</div>
+                </div>
+                <div class="col-sm-2">
+                    <div *ngIf="deposit.rub" class="depo-descr">10 000 - 20 000 000</div>
+                    <div *ngIf="deposit.usd" class="depo-descr">300 - 1 000 000</div>
+                    <div *ngIf="deposit.eur" class="depo-descr">300 - 1 000 000</div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="depo-descr">{{deposit.refill ? 'Да' : 'Нет'}}</div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="depo-descr">{{deposit.withdrawal ? 'Да' : 'Нет'}}</div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="depo-descr">{{deposit.capital ? 'Да' : 'Нет'}}</div>
+
+                </div>
+                <div class="col-sm-2">
+                    <div class="depo-descr">От {{deposit.minTermSupport}}</div>
+                    <div class="depo-descr">до {{deposit.maxTermSupport}}</div>
+                    <div class="depo-descr">месяцев</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:50px;margin-top:50px">
+            <div class="col-sm-12">
+                    <button color="primary" (click)="goBack()" class="back-button" mat-raised-button>Назад</button>
+                    <button color="primary" style="margin-left:100px" class="make-depo-button" mat-raised-button>Оформить вклад</button>                    
+            </div>
+        </div>
+    </div>
+</div>

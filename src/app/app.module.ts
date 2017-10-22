@@ -1,3 +1,4 @@
+import { DepositDetailsModule } from './deposit-details/deposit-details.module';
 import { FooterModule } from './footer/footer.module';
 import { DepositCalculatorModule } from './deposit-calculator/deposit-calculator.module';
 import { MainPageModule } from './main-page/main-page.module';
@@ -49,6 +50,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     MainPageModule,
     DepositCalculatorModule,
     FooterModule,
+    DepositDetailsModule,
     CarouselModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],

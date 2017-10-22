@@ -9,6 +9,11 @@ ul {
 .deposits li {
           border-bottom: 1px solid;
           border-color: rgba(69, 175, 189, 0.1);
+          cursor: pointer;
+}
+
+.deposits li:hover {
+          background-color: rgba(69, 175, 189, 0.1);
 }
 
 .deposits .depo-title {

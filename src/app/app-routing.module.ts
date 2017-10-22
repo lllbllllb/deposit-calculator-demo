@@ -1,3 +1,4 @@
+import { DepositDetailsComponent } from './deposit-details/deposit-details.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotAvailableComponent } from './page-not-available/page-not-available.component';
 import { DepositCalculatorComponent } from './deposit-calculator/deposit-calculator.component';
@@ -8,7 +9,12 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
           { path: '', redirectTo: 'main', pathMatch: 'full' },
           { path: 'main', component: MainPageComponent },
-          { path: 'deposits', component: DepositCalculatorComponent },
+          { path: 'deposits', children:
+                    [
+                              { path: '', component: DepositCalculatorComponent },
+                              { path: ':name', component: DepositDetailsComponent }
+                    ]
+          },
           { path: 'not-found', component: PageNotAvailableComponent },
           { path: '**', redirectTo: 'unknown', pathMatch: 'full' }
 ];
