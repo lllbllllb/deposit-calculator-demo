@@ -48,3 +48,10 @@ input {
           min-width: 0;
           border: none;
 }
+
+.table-header {
+          margin-top:10px;
+          font-size: medium;
+          color: white;
+          background-color: rgb(69, 175, 189);
+}

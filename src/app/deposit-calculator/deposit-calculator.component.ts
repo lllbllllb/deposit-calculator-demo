@@ -1,4 +1,6 @@
+import { Deposit } from './../entities/deposit';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-deposit-calculator',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepositCalculatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  allDeposits: Deposit[];
+  deposits: Deposit[];
 
   ngOnInit() {
+    this.http.get<Deposit[]>('/api/deposits')
+      .subscribe(accounts => {
+        this.deposits = accounts;
+      });
   }
 
+  setUserChoose(e) {
+    console.log(e.currency);
+  }
 }

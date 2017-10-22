@@ -1,64 +1,82 @@
 <div class="container">
   <div class="row">
-    <div style="background-color: white;">
-      <div class="col-xs-2">
-        <button mat-button style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
-          <md-icon>
-            <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
-          </md-icon>
-        </button>
+    <div class="col-sm-2">
+      <button mat-button style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
+        <md-icon>
+          <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
+        </md-icon>
+      </button>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="menu-name">
+        Валюта вклада
       </div>
 
-      <div class="col-xs-2">
-        <div class="menu-name">
-          Валюта вклада
-        </div>
-
-        <div>
-          <mat-button-toggle-group [value]="currency" (change)="changeCurrency($event)">
-            <mat-button-toggle value="rub">
-              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
-            </mat-button-toggle>
-            <mat-button-toggle value="usd">
-              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">$</p>
-            </mat-button-toggle>
-            <mat-button-toggle value="eur">
-              <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">€</p>
-            </mat-button-toggle>
-          </mat-button-toggle-group>
-        </div>
-      </div>
-
-      <div class="col-xs-4">
-        <div class="menu-name">
-          Сумма вклада
-        </div>
-        <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
-          <input matInput [(ngModel)]="moneyCount">
-        </div>
-        <mat-slider min="100000" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
-      </div>
-
-      <div class="col-xs-4">
-        <div class="menu-name">
-          Срок
-        </div>
-        <div style="font-size:30px;color:rgb(69, 175, 189);">
-          {{outputMonth}}
-        </div>
-        <mat-slider min="6" max="36" (input)="changeMonthCount($event)" [value]="mounthCount" color="accent"></mat-slider>
-        <div>
-          <mat-checkbox>
-            <span style="margin:10px" class="menu-name">пополнение</span>
-          </mat-checkbox>
-
-          <span style="margin-left:50px">
-            <mat-checkbox>
-              <span style="margin:10px" class="menu-name">снятие</span>
-            </mat-checkbox>
-          </span>
-        </div>
+      <div>
+        <mat-button-toggle-group [value]="currency" (change)="changeCurrency($event)">
+          <mat-button-toggle value="rub">
+            <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">₽</p>
+          </mat-button-toggle>
+          <mat-button-toggle value="usd">
+            <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">$</p>
+          </mat-button-toggle>
+          <mat-button-toggle value="eur">
+            <p style="font-size:40px;color:rgb(69, 175, 189);padding-top:10px">€</p>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
       </div>
     </div>
+
+    <div class="col-sm-4">
+      <div class="menu-name">
+        Сумма вклада
+      </div>
+      <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
+        <input matInput [(ngModel)]="moneyCount">
+      </div>
+      <mat-slider min="100000" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="menu-name">
+        Срок
+      </div>
+      <div style="font-size:30px;color:rgb(69, 175, 189);">
+        {{outputMonth}}
+      </div>
+      <mat-slider min="6" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
+      <div>
+        <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)">
+          <span style="margin:10px" class="menu-name">пополнение</span>
+        </mat-checkbox>
+
+        <span style="margin-left:50px">
+          <mat-checkbox [checked]="withdrawal" (change)="changeWithdrawalCheckbox($event)">
+            <span style="margin:10px" class="menu-name">снятие</span>
+          </mat-checkbox>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row table-header" style="height:30px">
+    <div style="margin-top:5px;" >
+        <div class="col-sm-4">
+            Наименование вклада
+          </div>
+          <div class="col-sm-1">
+            Ставка
+          </div>
+          <div  class="col-sm-2">
+            Доход
+          </div>
+          <div class="col-sm-4">
+            Сумма через {{outputMonth}}
+          </div>
+          <div class="col-sm-1">
+            Капитал
+          </div>
+    </div>
+
   </div>
 </div>

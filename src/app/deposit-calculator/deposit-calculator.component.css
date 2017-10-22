@@ -1,2 +1,25 @@
+.deposits {
+          list-style-type: none;
+}
 
+ul {
+          padding: 0;
+}
 
+.deposits li {
+          border-bottom: 1px solid;
+          border-color: rgba(69, 175, 189, 0.1);
+}
+
+.deposits .depo-title {
+          margin-top: 5px;          
+          font-size: x-large;
+          color: rgb(69, 175, 189);
+          margin-bottom: 10px;
+}
+
+.deposits .depo-descr {
+          font-size: medium;
+          color: rgb(141, 141, 141);
+          margin-bottom: 5px;
+}

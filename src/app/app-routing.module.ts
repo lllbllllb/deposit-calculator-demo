@@ -8,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
           { path: '', redirectTo: 'main', pathMatch: 'full' },
           { path: 'main', component: MainPageComponent },
-          { path: 'calculator', component: DepositCalculatorComponent },
-          { path: 'unknown', component: PageNotAvailableComponent },
+          { path: 'deposits', component: DepositCalculatorComponent },
+          { path: 'not-found', component: PageNotAvailableComponent },
           { path: '**', redirectTo: 'unknown', pathMatch: 'full' }
 ];
 

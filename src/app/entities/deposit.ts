@@ -1,9 +1,10 @@
 export interface Deposit {
           id: number;
           name: string;
-          perRur: number;
-          perUsd: number;
-          perEuro: number;
+          rub: number;
+          usd: number;
+          eur: number;
           minTermSupport: number;
           maxTermSupport: number;
+          description: string;
 }

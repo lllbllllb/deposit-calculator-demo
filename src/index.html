@@ -23,7 +23,7 @@
     // 80 px - 'header'
     // 500px  'carousel'
     // 10 px - space between 'carousel' and 'menu_panel'
-    // 160px - 'menu_panel'
+    // 200px - 'menu_panel'
     // 10px - space between 'menu_panel' and 'zenit_content_below_menu_panel'
     $(function () {
       var elem_header = $('#zenit_header_background_80px');
@@ -48,7 +48,7 @@
 
         if (top >= 430) {
           elem_menu_panel.css({"position":"fixed","top":"80px"});
-          elem_main_content.css({"margin-top":"160px"});
+          elem_main_content.css({"margin-top":"200px"});
         } else {
           elem_menu_panel.css({"position":"inherit"});
           elem_main_content.css({"margin-top":"0"});

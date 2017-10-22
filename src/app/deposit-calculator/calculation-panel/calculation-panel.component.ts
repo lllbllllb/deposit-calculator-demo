@@ -1,5 +1,5 @@
 import { Deposit } from './../../entities/deposit';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 export class CalculationPanelComponent implements OnInit {
 
   moneyCount: number;
-  mounthCount = 12;
   currency: string;
   currencies = {
     'rub': 'руб',
@@ -26,35 +25,36 @@ export class CalculationPanelComponent implements OnInit {
     '3': 'месяцев'
   };
 
-  deposits: Deposit[];
+  refill: boolean;
+
+  withdrawal: boolean;
+
+  @Output() choose: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.moneyCount = 600000;
     this.currency = 'rub';
-    this.outputMonth = 12 + ' ' + this.monthNames[3];
-
-    this.http.get<Deposit[]>('/api/deposits')
-    .subscribe(deposits => {
-      this.deposits = deposits;
-    });
+    this.monthCount = 12;
+    this.refill = true;
+    this.withdrawal = false;
+    this.outputMonth = this.monthCount + ' ' + this.monthNames[3];
   }
 
   changeCurrency(e) {
-    console.log(this.currency + '1');
     this.currency = e.value;
-    console.log(this.currency);
+    this.fireChooseEvent();
   }
 
   changeMoneyCount(e) {
     this.moneyCount = e.value;
-  //  console.log(e.value);
+    this.fireChooseEvent();
   }
 
   changeMonthCount(e) {
+    this.monthCount = e.value;
     const del = e.value % 10;
-    console.log(e.value + ': ' + del);
     let monthVar = this.monthNames[3];
     if (del === 1 && e.value !== 11) {
       monthVar = this.monthNames[1];
@@ -62,5 +62,28 @@ export class CalculationPanelComponent implements OnInit {
       monthVar = this.monthNames[2];
     }
     this.outputMonth = e.value + ' ' + monthVar;
+    this.fireChooseEvent();
+  }
+
+  changeRefillCheckbox(e) {
+    this.refill = e.checked;
+    this.fireChooseEvent();
+  }
+
+  changeWithdrawalCheckbox(e) {
+    this.withdrawal = e.checked;
+    this.fireChooseEvent();
+  }
+
+  fireChooseEvent() {
+    const choose = {
+      currency: this.currency,
+      moneyCount: this.moneyCount,
+      monttCount: this.monthCount,
+      refill: this.refill,
+      withdrawal : this.withdrawal
+    };
+
+    this.choose.next(choose);
   }
 }
