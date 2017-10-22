@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2">
-      <button mat-button style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
+      <button mat-button (click)="gotoMain()" style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
         <md-icon>
           <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
         </md-icon>
@@ -48,12 +48,12 @@
       <mat-slider min="1" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
       <div>
         <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)">
-          <span style="margin:10px" class="menu-name">пополнение</span>
+          <span style="margin:10px;font-weight:lighter" class="menu-name">пополнение</span>
         </mat-checkbox>
 
         <span style="margin-left:50px">
           <mat-checkbox [checked]="withdrawal" (change)="changeWithdrawalCheckbox($event)">
-            <span style="margin:10px" class="menu-name">снятие</span>
+            <span style="margin:10px;font-weight:lighter" class="menu-name">снятие</span>
           </mat-checkbox>
         </span>
       </div>
