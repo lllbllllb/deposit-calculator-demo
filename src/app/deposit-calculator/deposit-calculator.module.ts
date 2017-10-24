@@ -12,7 +12,8 @@ import {
           MatCheckboxModule,
           MatButtonToggleModule,
           MatTableModule,
-          MatInputModule
+          MatInputModule,
+          MatDialogModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -31,7 +32,8 @@ import 'hammerjs';
                     MatTableModule,
                     MatInputModule,
                     FormsModule,
-                    ReactiveFormsModule
+                    ReactiveFormsModule,
+                    MatDialogModule
           ],
           declarations: [
                     DepositCalculatorComponent,

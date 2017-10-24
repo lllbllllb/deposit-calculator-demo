@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-2">
+  <div class="row hidden-xs">
+    <div class="col-xs-2">
       <button mat-button (click)="gotoMain()" style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
         <md-icon>
           <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
@@ -59,27 +59,52 @@
       </div>
     </div>
   </div>
-  <div class="row table-header" style="height:30px">
-    <div style="margin-top:5px;" >
-        <div class="col-sm-4">
-            Наименование вклада
-          </div>
-          <div class="col-sm-1">
-            Ставка
-          </div>
-          <div  class="col-sm-2">
-            Доход
-          </div>
-          <div class="col-sm-3">
-            Сумма через {{outputMonth}}
-          </div>
-          <div class="col-sm-1">
-            Капитал
-          </div>
-          <div class="col-sm-1">
-            Срок
-          </div>
+  <div class="row table-header hidden-xs" style="height:30px">
+    <div style="margin-top:5px;">
+      <div class="col-sm-4">
+        Наименование вклада
+      </div>
+      <div class="col-sm-1">
+        Ставка
+      </div>
+      <div class="col-sm-2">
+        Доход
+      </div>
+      <div class="col-sm-3">
+        Сумма через {{outputMonth}}
+      </div>
+      <div class="col-sm-1">
+        Капитал
+      </div>
+      <div class="col-sm-1">
+        Срок
+      </div>
+    </div>
+  </div>
+
+  <div class="row visible-xs">
+    <div class="col-xs-6">
+      <button mat-button (click)="gotoMain()" style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
+        <md-icon>
+          <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
+        </md-icon>
+      </button>
     </div>
 
+    <div class="col-xs-6">
+      <button mat-button (click)="gotoMain()" style="height:100%;padding:0;margin:0">
+        <p class="filter-button">
+          Отфильтровать <wbr>доступные <wbr>вклады
+          </p>
+      </button>
+    </div>
+  </div>
+
+  <div class="row table-header visible-xs" style="height:30px">
+    <div style="margin-top:5px;">
+      <div class="col-xs-12">
+        Доступные вклады
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 :host /deep/ .ui-toolbar {
           background-color: rgb(141, 141, 141);
           border-color: transparent;
-          height: 400px;
+          min-height: 400px;
           /* width: 110%;         */
 }
 

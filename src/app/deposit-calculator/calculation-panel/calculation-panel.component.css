@@ -60,3 +60,13 @@ input {
           background-color: black !important;
           opacity: 0.5;
 }
+
+.filter-button {
+          padding-top: 35px;
+          padding-bottom: 35px;
+          height: 100% !important;
+          width: 100% !important;
+          font-size: 20px;
+          color: rgb(69, 175, 189);
+          padding-left: 0 !important;
+}
