@@ -47,12 +47,12 @@
       </div>
       <mat-slider min="1" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
       <div>
-        <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)">
+        <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)" color="accent">
           <span style="margin:10px;font-weight:lighter" class="menu-name">пополнение</span>
         </mat-checkbox>
 
         <span style="margin-left:50px">
-          <mat-checkbox [checked]="withdrawal" (change)="changeWithdrawalCheckbox($event)">
+          <mat-checkbox [checked]="withdrawal" (change)="changeWithdrawalCheckbox($event)" color="accent">
             <span style="margin:10px;font-weight:lighter" class="menu-name">снятие</span>
           </mat-checkbox>
         </span>

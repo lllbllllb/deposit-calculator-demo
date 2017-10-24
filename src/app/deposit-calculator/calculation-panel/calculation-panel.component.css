@@ -55,3 +55,8 @@ input {
           color: white;
           background-color: rgb(69, 175, 189);
 }
+
+.mat-slider-track-fill {
+          background-color: black !important;
+          opacity: 0.5;
+}
