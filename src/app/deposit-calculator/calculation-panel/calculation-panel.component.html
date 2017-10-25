@@ -26,6 +26,12 @@
           </mat-button-toggle>
         </mat-button-toggle-group>
       </div>
+      <div style="margin-top:28px" pTooltip="Выплата процентов на депозит повышает доходность, но вы не сможете распоряжаться начисленными процентами до окончания срока"
+        tooltipPosition="bottom">
+        <mat-checkbox [checked]="capitalization" (change)="changeCapitalizationCheckbox($event)" color="accent">
+          <span style="margin:10px;font-weight:lighter" class="menu-name">Капитализация</span>
+        </mat-checkbox>
+      </div>
     </div>
 
     <div class="col-sm-4">
@@ -33,9 +39,22 @@
         Сумма вклада
       </div>
       <div style="font-size:30px;color:rgb(69, 175, 189);width:60%">
-        <input matInput [(ngModel)]="moneyCount" (keyup.enter)="inputMoneyCount()">
+        <input matInput [(ngModel)]="formattedMoneyCout" (keyup)="inputMoneyCount()">
       </div>
       <mat-slider [min]="minMoneyCount" max="2000000" (input)="changeMoneyCount($event)" [value]="moneyCount" step="10" color="accent"></mat-slider>
+      <div>
+        <span pTooltip="Увеличение ставки для пенсионеров" tooltipPosition="bottom">
+          <mat-checkbox [checked]="pensioner" (change)="changePensionerCheckbox($event)" color="accent">
+            <span style="margin:10px;font-weight:lighter" class="menu-name">Я пенсионер</span>
+          </mat-checkbox>
+        </span>
+
+        <span style="margin-left:15px" pTooltip="Увеличение ставки при открытии вклада через интернет-банк" tooltipPosition="bottom">
+          <mat-checkbox [checked]="onlineopn" (change)="changeOnlineopnCheckbox($event)" color="accent">
+            <span style="margin:10px;font-weight:lighter" class="menu-name">Открыть онлайн</span>
+          </mat-checkbox>
+        </span>
+      </div>
     </div>
 
     <div class="col-sm-4">
@@ -43,25 +62,25 @@
         Срок
       </div>
       <div style="font-size:30px;color:rgb(69, 175, 189);">
-        {{outputMonth}}
+        {{formattedMonthCount}}
       </div>
       <mat-slider min="1" max="36" (input)="changeMonthCount($event)" [value]="monthCount" color="accent"></mat-slider>
       <div>
         <mat-checkbox [checked]="refill" (change)="changeRefillCheckbox($event)" color="accent">
-          <span style="margin:10px;font-weight:lighter" class="menu-name">пополнение</span>
+          <span style="margin:10px;font-weight:lighter" class="menu-name">Пополнение</span>
         </mat-checkbox>
 
         <span style="margin-left:50px">
           <mat-checkbox [checked]="withdrawal" (change)="changeWithdrawalCheckbox($event)" color="accent">
-            <span style="margin:10px;font-weight:lighter" class="menu-name">снятие</span>
+            <span style="margin:10px;font-weight:lighter" class="menu-name">Снятие</span>
           </mat-checkbox>
         </span>
       </div>
     </div>
   </div>
   <div class="row table-header hidden-xs" style="height:30px">
-    <div style="margin-top:5px;">
-      <div class="col-sm-4">
+    <div style="margin-top:5px;text-align:center">
+      <div class="col-sm-4" style="text-align:left">
         Наименование вклада
       </div>
       <div class="col-sm-1">
@@ -70,11 +89,11 @@
       <div class="col-sm-2">
         Доход
       </div>
-      <div class="col-sm-3">
-        Сумма через {{outputMonth}}
+      <div class="col-sm-2" style="padding:0">
+        Сумма через {{formattedMonthCount}}
       </div>
-      <div class="col-sm-1">
-        Капитал
+      <div class="col-sm-2">
+        Капитализация
       </div>
       <div class="col-sm-1">
         Срок
@@ -94,8 +113,10 @@
     <div class="col-xs-6">
       <button mat-button (click)="gotoMain()" style="height:100%;padding:0;margin:0">
         <p class="filter-button">
-          Отфильтровать <wbr>доступные <wbr>вклады
-          </p>
+          Отфильтровать
+          <wbr>доступные
+          <wbr>вклады
+        </p>
       </button>
     </div>
   </div>

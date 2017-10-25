@@ -11,6 +11,8 @@ export class InMemoryDataService implements InMemoryDbService {
         eur: 0.8,
         refill: true,
         withdrawal: true,
+        pensioner: 0.25,
+        onlineopn: 0.25,
         capital: true,
         minTermSupport: 8,
         maxTermSupport: 24,

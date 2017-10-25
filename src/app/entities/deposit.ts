@@ -6,6 +6,8 @@ export interface Deposit {
           eur?: number;
           refill: boolean;
           withdrawal: boolean;
+          pensioner?: number;
+          onlineopn?: number;
           capital: boolean;
           minTermSupport: number;
           maxTermSupport: number;

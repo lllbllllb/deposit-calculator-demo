@@ -22,19 +22,22 @@ export class DepositCalculatorComponent implements OnInit {
   currency: string;
   moneyCount: number;
   monthCount: number;
+  capitalization: boolean;
+  pensioner: boolean;
+  onlineopn: boolean;
   refill: boolean;
   withdrawal: boolean;
 
   currencies = {
-    'rub': 'руб',
-    'eur': 'евро',
-    'usd': 'долл. США'
+    'rub': '₽',
+    'eur': '€',
+    'usd': '$'
   };
 
   ngOnInit() {
     this.http.get<Deposit[]>('/api/deposits')
-      .subscribe(accounts => {
-        this.allDeposits = accounts;
+      .subscribe(deposits => {
+        this.allDeposits = deposits;
 
         this.fillCepositsTable(this.allDeposits);
       });
@@ -44,6 +47,9 @@ export class DepositCalculatorComponent implements OnInit {
     this.currency = e.currency;
     this.moneyCount = e.moneyCount;
     this.monthCount = e.monthCount;
+    this.capitalization = e.capitalization;
+    this.pensioner = e.pensioner;
+    this.onlineopn = e.onlineopn;
     this.refill = e.refill;
     this.withdrawal = e.withdrawal;
 
@@ -63,6 +69,7 @@ export class DepositCalculatorComponent implements OnInit {
         && this.monthCount <= d.maxTermSupport
         && (this.refill ? d.refill === this.refill : true)
         && (this.withdrawal ? d.withdrawal === this.withdrawal : true)
+        && (this.capitalization ? d.capital === this.capitalization : true)
       ) {
 
         const percetage = Math.floor((this.moneyCount * d[this.currency] / 100) / 12 * this.monthCount);
@@ -70,9 +77,9 @@ export class DepositCalculatorComponent implements OnInit {
         const calc = {
           name: d.name,
           description: d.description,
-          rate: d[this.currency] + '%',
-          income: percetage + ' ' + this.currencies[this.currency],
-          amountAfterPeriod: sum + ' ' + this.currencies[this.currency],
+          rate: this.calculateRate(d) + '%',
+          profit: this.formatOutputNumber(this.calculateProfit(d) - this.moneyCount) + this.currencies[this.currency],
+          amountAfterPeriod: this.formatOutputNumber(this.calculateProfit(d)) + this.currencies[this.currency],
           capital: d.capital ? 'Да' : '',
           termFr: 'От ' + d.minTermSupport,
           termTo: 'до ' + d.maxTermSupport + ' месяцев'
@@ -85,6 +92,33 @@ export class DepositCalculatorComponent implements OnInit {
     this.deposits = Observable.of(buffer);
   }
 
+  calculateRate(d: Deposit): number {
+    const mainRate = +d[this.currency];
+    const pensionerRate = this.pensioner && d['pensioner'] ? d['pensioner'] : 0;
+    const onlineopRate = this.onlineopn && d['onlineopn'] ? d['onlineopn'] : 0;
+
+    return +mainRate + +pensionerRate + +onlineopRate;
+  }
+
+  calculateProfit(d: Deposit): number {
+    let total = this.moneyCount;
+    let rate = this.calculateRate(d) / 100;
+    if (d.capital) {
+      rate = +1 + rate / 12;
+      for (let i = 0; i < this.monthCount; i++) {
+        total = total * rate;
+      }
+      return Math.floor(total);
+    } else {
+      rate = +1 + rate;
+      return Math.floor(total * this.monthCount * rate);
+    }
+  }
+
+  formatOutputNumber(n: number): string {
+    return ('' + n).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' ';
+  }
+
   onSelectDeposit(deposit: Deposit) {
     this.router.navigate(['deposits', deposit.name]);
   }
@@ -94,7 +128,7 @@ export interface CalculatedDeposit {
   name: string;
   description: string;
   rate: string;
-  income: string;
+  profit: string;
   amountAfterPeriod: string;
   capital: string;
   termFr: string;

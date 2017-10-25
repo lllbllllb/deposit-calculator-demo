@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// primeng
+import { TooltipModule } from 'primeng/primeng';
+
 // angular material
 import {
           MatButtonModule,
@@ -33,7 +36,8 @@ import 'hammerjs';
                     MatInputModule,
                     FormsModule,
                     ReactiveFormsModule,
-                    MatDialogModule
+                    MatDialogModule,
+                    TooltipModule
           ],
           declarations: [
                     DepositCalculatorComponent,

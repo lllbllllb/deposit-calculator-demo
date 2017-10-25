@@ -11,20 +11,26 @@ import { HttpClient } from '@angular/common/http';
 export class CalculationPanelComponent implements OnInit {
 
   moneyCount: number;
+  formattedMoneyCout: string;
+
   currency: string;
 
   monthCount: number;
-  outputMonth: string;
+  formattedMonthCount: string;
   monthNames = {
     '1': 'месяц',
     '2': 'месяца',
     '3': 'месяцев'
   };
 
+  capitalization: boolean;
+  pensioner: boolean;
+  onlineopn: boolean;
   refill: boolean;
   withdrawal: boolean;
 
   minMoneyCount: number;
+  maxMountCount: number;
 
   @Output() choose: EventEmitter<any> = new EventEmitter<any>();
 
@@ -35,9 +41,13 @@ export class CalculationPanelComponent implements OnInit {
     this.moneyCount = 600000;
     this.currency = 'rub';
     this.monthCount = 12;
-    this.refill = true;
+    this.capitalization = false,
+    this.pensioner = false,
+    this.onlineopn = true,
+    this.refill = false;
     this.withdrawal = false;
-    this.outputMonth = this.monthCount + ' ' + this.monthNames[3];
+    this.formattedMonthCount = this.monthCount + ' ' + this.monthNames[3];
+    this.formattedMoneyCout = ('' + this.moneyCount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 
     this.minMoneyCount = 10000;
 
@@ -51,11 +61,14 @@ export class CalculationPanelComponent implements OnInit {
   }
 
   inputMoneyCount() {
+    this.moneyCount = + this.formattedMoneyCout.replace(/\D/g, '');
+    this.formattedMoneyCout = ('' + this.moneyCount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
     this.fireChooseEvent();
   }
 
   changeMoneyCount(e) {
     this.moneyCount = e.value;
+    this.formattedMoneyCout = ('' + this.moneyCount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
     this.fireChooseEvent();
   }
 
@@ -68,7 +81,22 @@ export class CalculationPanelComponent implements OnInit {
     } else if (del > 1 && del < 5 && e.value < 10 && e.value > 20) {
       monthVar = this.monthNames[2];
     }
-    this.outputMonth = e.value + ' ' + monthVar;
+    this.formattedMonthCount = e.value + ' ' + monthVar;
+    this.fireChooseEvent();
+  }
+
+  changeCapitalizationCheckbox(e) {
+    this.capitalization = e.checked;
+    this.fireChooseEvent();
+  }
+
+  changePensionerCheckbox(e) {
+    this.pensioner = e.checked;
+    this.fireChooseEvent();
+  }
+
+  changeOnlineopnCheckbox(e) {
+    this.onlineopn = e.checked;
     this.fireChooseEvent();
   }
 
@@ -87,6 +115,9 @@ export class CalculationPanelComponent implements OnInit {
       currency: this.currency,
       moneyCount: this.moneyCount,
       monthCount: this.monthCount,
+      capitalization: this.capitalization,
+      pensioner: this.pensioner,
+      onlineopn: this.onlineopn,
       refill: this.refill,
       withdrawal: this.withdrawal
     };
