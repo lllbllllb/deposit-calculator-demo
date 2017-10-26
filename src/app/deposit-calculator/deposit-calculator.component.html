@@ -12,19 +12,34 @@
                         <div class="depo-descr">{{d.description}}</div>
                     </div>
                     <div class="col-sm-1 calculation">
+                        <label style="text-align:left" class="visible-xs">
+                            Ставка: &nbsp;&nbsp;
+                        </label>
                         {{d.rate}}
                     </div>
                     <div class="col-sm-2 calculation">
-                        {{d.profit}}
+                            <label style="text-align:left" class="visible-xs">
+                                Доход: &nbsp;&nbsp;
+                            </label>
+                            {{d.profit}}
                     </div>
                     <div class="col-sm-2 calculation">
-                        {{d.amountAfterPeriod}}
+                            <label style="text-align:left" class="visible-xs">
+                                Сумма через 12 месяцев: &nbsp;&nbsp;
+                            </label>
+                            {{d.amountAfterPeriod}}
                     </div>
                     <div class="col-sm-2 calculation">
-                        {{d.capital}}
+                            <label style="text-align:left" class="visible-xs">
+                                Капитализация: &nbsp;&nbsp;
+                            </label>
+                            {{d.capital}}
                     </div>
                     <div class="col-sm-1 calculation">
-                        <div>{{d.termFr}}</div>
+                            <label style="text-align:left" class="visible-xs">
+                                Срок: &nbsp;&nbsp;
+                            </label>
+                                <span>{{d.termFr}}</span>
                         <div>{{d.termTo}}</div>
                     </div>
                 </div>

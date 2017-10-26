@@ -1,6 +1,6 @@
 <div id="zenit_content_below_menu_panel" style="padding-top:0">
     <div class="container">
-        <div class="row table-header">
+        <div class="row table-header hidden-xs">
             <div class="col-sm-3">
                 <P>Наименование депозита</P>
             </div>
@@ -67,9 +67,18 @@
         </div>
 
         <div class="row" style="margin-bottom:50px;margin-top:50px">
-            <div class="col-sm-12">
+            <div class="hidden-xs">
+                <div class="col-sm-3">
                     <button color="primary" (click)="goBack()" class="back-button" mat-raised-button>Назад</button>
-                    <button color="primary" style="margin-left:100px" class="make-depo-button" mat-raised-button>Оформить вклад</button>                    
+                </div>
+                <div class="col-sm-9">
+                    <button color="primary" style="margin-left:100px" class="make-depo-button" mat-raised-button>Оформить вклад</button>
+                </div>
+            </div>
+            <div class="visible-xs">
+                <div class="col-xs-12">
+                    <button color="primary" style="margin-left:50px" class="make-depo-button" mat-raised-button>Оформить вклад</button>
+                </div>
             </div>
         </div>
     </div>

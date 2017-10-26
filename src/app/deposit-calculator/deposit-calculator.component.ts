@@ -80,7 +80,7 @@ export class DepositCalculatorComponent implements OnInit {
           rate: this.calculateRate(d) + '%',
           profit: this.formatOutputNumber(this.calculateProfit(d) - this.moneyCount) + this.currencies[this.currency],
           amountAfterPeriod: this.formatOutputNumber(this.calculateProfit(d)) + this.currencies[this.currency],
-          capital: d.capital ? 'Да' : '',
+          capital: d.capital ? 'Да' : 'Нет',
           termFr: 'От ' + d.minTermSupport,
           termTo: 'до ' + d.maxTermSupport + ' месяцев'
         };

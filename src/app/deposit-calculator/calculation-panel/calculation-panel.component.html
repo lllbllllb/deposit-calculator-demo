@@ -78,6 +78,7 @@
       </div>
     </div>
   </div>
+  
   <div class="row table-header hidden-xs" style="height:30px">
     <div style="margin-top:5px;text-align:center">
       <div class="col-sm-4" style="text-align:left">
@@ -101,30 +102,18 @@
     </div>
   </div>
 
-  <div class="row visible-xs">
-    <div class="col-xs-6">
-      <button mat-button (click)="gotoMain()" style="border-right:1px solid; border-color:rgba(0, 0, 0, 0.1);">
-        <md-icon>
-          <i class="material-icons" style="padding-top:50px;padding-bottom:50px;">chevron_left</i>
-        </md-icon>
-      </button>
-    </div>
-
-    <div class="col-xs-6">
-      <button mat-button (click)="gotoMain()" style="height:100%;padding:0;margin:0">
-        <div class="filter-button">
-          Отфильтровать
-          <wbr> доступные
-          <wbr> вклады
-        </div>
+  <div class="row visible-xs" style="height:40px;width:100vw">
+    <div class="col-xs-12">
+      <button mat-raised-button color="accent" (click)="gotoMain()" style="height:40px;">
+        <div class="filter-button">Фильтр вкладов</div>
       </button>
     </div>
   </div>
 
-  <div class="row table-header visible-xs" style="height:30px">
+  <div class="row th-mobile visible-xs" style="height:30px">
     <div style="margin-top:5px;">
       <div class="col-xs-12">
-        Доступные вклады
+        Доступные вклады:
       </div>
     </div>
   </div>
