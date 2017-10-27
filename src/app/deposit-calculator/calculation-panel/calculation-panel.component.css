@@ -9,7 +9,7 @@
 .material-icons {
           padding: 0;
           font-size: 60px;
-          color: rgb(69, 175, 189);
+          color: rgb(0, 140, 153);
 }
 
 .menu-name {
@@ -20,11 +20,11 @@
 
 .mat-slider {
           width: 100%;
-          /* color: rgb(69, 175, 189); */
+          /* color: rgb(0, 140, 153); */
 }
 
 .mat-raised-button {
-          /* background-color: rgb(69, 175, 189); */
+          /* background-color: rgb(0, 140, 153); */
           color:white !important;
           /* box-shadow: 0; */
           /* border-radius: 50px; */
@@ -53,7 +53,7 @@ input {
           margin-top:10px;
           font-size: medium;
           color: white;
-          background-color: rgb(69, 175, 189);
+          background-color: rgb(0, 140, 153);
 }
 
 .filter-button {
@@ -71,5 +71,5 @@ input {
           margin-top:10px;
           font-size: medium;
           color: white;
-          background-color: rgb(69, 175, 189);
+          background-color: rgb(0, 140, 153);
 }
