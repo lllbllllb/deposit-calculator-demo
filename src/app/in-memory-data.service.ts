@@ -3,6 +3,30 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+
+    const currentExchangeRate: any[] = [
+      { id: 0,
+        code: 'usd',
+        rateBuy: '57,25',
+        rateSal: '59,00'
+      },
+      { id: 1,
+        code: 'eur',
+        rateBuy: '67,00',
+        rateSal: '67,75'
+      },
+      { id: 2,
+        code: 'gbr',
+        rateBuy: '75,00',
+        rateSal: '79,00'
+      },
+      { id: 3,
+        code: 'chf',
+        rateBuy: '57,25',
+        rateSal: '60,00'
+      }
+    ];
+
     const deposits: Deposit[] = [
       { id: 0,
         name: 'Восхитительный',
@@ -119,6 +143,7 @@ export class InMemoryDataService implements InMemoryDbService {
         description: 'Пополняемый сезонный вклад с одной из самых высоких ставок среди депозитов банка'
       }
     ];
-    return { deposits };
+
+    return { deposits, currentExchangeRate };
   }
 }

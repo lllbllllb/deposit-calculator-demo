@@ -3,7 +3,76 @@
 </div>
 
 <div id="zenit_content_below_menu_panel" style="padding-top:0">
-    <!-- <div style="font-size:10em;margin-left:50%">:)</div> -->
-    <div>Главная страница</div>
-</div>
+    <div class="container">
 
+        <div class="delimeter"></div>
+
+        <div class="row">
+            <div class="theme-text">Курсы валют *</div>
+        </div>
+        <div class="row table-header">
+            <div class="col-xs-1" style="text-align:center">
+                Код
+            </div>
+            <div class="col-xs-1" style="text-align:center">
+                Единиц
+            </div>
+            <div class="col-xs-6">
+                Валюта
+            </div>
+            <div class="col-xs-1" style="text-align:center">
+                Покупка
+            </div>
+            <div class="col-xs-1" style="text-align:center">
+                Продажа
+            </div>
+            <div class="col-xs-2" style="text-align:center">
+                Время обновления
+            </div>
+        </div>
+        <div class="row">
+            <div style="padding-top:0">
+                <ul class="table-row">
+                    <li *ngFor="let c of currentExchangeRate | async">
+                        <div class="col-xs-1" style="text-align:center">
+                            {{c.code}}
+                        </div>
+
+                        <div class="col-xs-1" style="text-align:center">
+                            1
+                        </div>
+
+                        <div class="col-xs-6">
+                            {{c.name}}
+                        </div>
+
+                        <div class="col-xs-1" style="text-align:center">
+                            {{c.rateBuy}}
+                        </div>
+
+                        <div class="col-xs-1" style="text-align:center">
+                            {{c.rateSal}}
+                        </div>
+
+                        <div class="col-xs-2" style="text-align:center">
+                            {{c.updateTime}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footnote-text">
+                * Курсы валют указаны для головного офиса банка. В структурных подразделениях банка значения курсов иностранных валют могут
+                отличаться от значений, указанных для головного офиса. Курсы меняются в течение дня. Уточняйте информацию
+                у сотрудников банка по контактным телефонам структурных подразделений.
+            </div>
+        </div>
+                
+        <div class="delimeter"></div>
+        
+        <div class="row">
+            ihujh
+        </div>
+    </div>
+</div>

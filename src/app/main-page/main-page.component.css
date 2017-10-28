@@ -1,0 +1,44 @@
+.theme-text {
+          /* padding-top:50px; */
+          /* padding-bottom: 50px; */
+          font-size: medium;
+          color: black;
+          font-weight: bold;
+}
+
+.footnote-text {
+          /* padding-top:50px; */
+          /* padding-bottom: 50px; */
+          font-size: x-small;
+          color: rgb(141, 141, 141);;
+}
+
+.table-header {
+          margin-top:10px;
+          font-size: medium;
+          color: white;
+          background-color: rgb(0, 140, 153);
+}
+
+.table-row {
+          list-style-type: none;
+          padding: 0;
+          
+          /* margin-top: 20px;           */
+}
+
+
+.table-row li {
+          border-bottom: 1px solid;
+          border-color: rgba(0, 140, 153, 0.1);
+          height: 20px;
+}
+
+.table-row li:hover {
+          background-color: rgba(0, 140, 153, 0.25);
+}
+
+.delimeter {
+          height: 50px;
+          width: 100%;
+}
