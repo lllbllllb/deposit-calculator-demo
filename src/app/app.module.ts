@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { PageNotAvailableComponent } from './page-not-available/page-not-available.component';
+import { PageNotAvailableModule } from './page-not-available/page-not-available.module';
 import { CarouselComponent } from './carousel/carousel.component';
 
 // Imports for loading & configuring the in-memory web api
@@ -34,7 +34,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   declarations: [
     AppComponent,
     HeaderComponent,
-    PageNotAvailableComponent,
     CarouselComponent
   ],
   imports: [
@@ -51,6 +50,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     DepositCalculatorModule,
     FooterModule,
     DepositDetailsModule,
+    PageNotAvailableModule,
     CarouselModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],

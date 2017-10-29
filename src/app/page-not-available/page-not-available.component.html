@@ -1,3 +1,15 @@
-<p>
-  page-not-available works!
-</p>
+<p-sidebar [(visible)]="showPage" [fullScreen]="true" [baseZIndex]="100000" [blockScroll]="true">
+      <div class="container">
+        <div class="row">
+          <div class="not-fount-info">
+            Запрашиваемая страница никогда не существовала или была удалена. 
+          </div>
+        </div>
+
+        <div class="row">
+          <div style="text-align:center;margin-top:10%">
+              <button color="primary" (click)="gotoMain()" mat-raised-button>Вернуться на главную</button>                          
+          </div>
+        </div>
+      </div>
+  </p-sidebar>

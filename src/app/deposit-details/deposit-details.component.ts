@@ -35,8 +35,11 @@ export class DepositDetailsComponent implements OnInit {
           for (const depo of this.allDeposits) {
             if (depo.name === params.get('name')) {
               this.deposit = depo;
+              return;
             }
           }
+
+          this.router.navigate(['unknown_page']);
         });
       });
   }

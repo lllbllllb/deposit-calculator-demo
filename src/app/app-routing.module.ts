@@ -15,8 +15,8 @@ const appRoutes: Routes = [
                               { path: ':name', component: DepositDetailsComponent }
                     ]
           },
-          { path: 'not-found', component: PageNotAvailableComponent },
-          { path: '**', redirectTo: 'unknown', pathMatch: 'full' }
+          { path: 'unknown_page', component: PageNotAvailableComponent },
+          { path: '**', redirectTo: 'unknown_page', pathMatch: 'full' }
 ];
 
 @NgModule({

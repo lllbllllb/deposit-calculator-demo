@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotAvailableComponent implements OnInit {
 
-  constructor() { }
+  showPage = true;
 
-  ngOnInit() {
+  constructor(private router: Router) { }
+
+  ngOnInit() { }
+
+  gotoMain() {
+    this.router.navigate(['main']);
   }
-
 }

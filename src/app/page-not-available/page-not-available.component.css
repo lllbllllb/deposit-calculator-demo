@@ -1,0 +1,30 @@
+.not-fount-info {
+          text-align: center;
+          margin-top: 30vh;          
+          font-size: x-large;
+          color: rgb(0, 140, 153);
+          margin-bottom: 10px;
+}
+
+.mat-raised-button {
+          background-color: transparent;
+          color:rgb(0, 140, 153);
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          border: 2px solid;
+          border-color: rgb(0, 140, 153);
+          font-weight: bold;
+          /* width: 150px;           */
+          /* box-shadow: none !important; */
+}
+
+.mat-raised-button:hover {
+          background-color: rgb(0, 140, 153);
+          color:white;
+          box-shadow: 0;
+          border-radius: 50px;
+          height:50px;
+          /* width: 150px; */
+          /* box-shadow: none !important; */
+}
