@@ -4,12 +4,9 @@ const http = require('http');
 
 const app = express();
 
-console.log('1) !!!!!!!!!!!!!!!!!!!!!!' + __dirname + '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', function (req, res) {
-console.log('2) !!!!!!!!!!!!!!!!!!!!!!' + __dirname + '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
