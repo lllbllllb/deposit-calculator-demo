@@ -31,7 +31,9 @@
 .table-row li {
           border-bottom: 1px solid;
           border-color: rgba(0, 140, 153, 0.1);
-          height: 20px;
+          height: 50px;
+          font-size: medium;
+          padding-top: 15px;
 }
 
 .table-row li:hover {
