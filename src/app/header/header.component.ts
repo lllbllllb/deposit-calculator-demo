@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   gotoMain() {
     this.router.navigate(['main']);
   }
+
+  gotoIbank() {
+    window.location.href = 'http://ibank.alfresco.by/';
+  }
 }
