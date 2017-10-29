@@ -10,8 +10,13 @@ app.get('*', function (req, res) {
   res.sendFile('index.html');
 });
 
+app.get('/*', function(req, res) {
+  res.sendFile('index.html');
+});
+
 const port = process.env.PORT || '5000';
 app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port, () => console.log('Running! (step 3b fired)'));
+
