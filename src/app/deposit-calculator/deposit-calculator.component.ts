@@ -110,8 +110,8 @@ export class DepositCalculatorComponent implements OnInit {
       }
       return Math.floor(total);
     } else {
-      rate = +1 + rate;
-      return Math.floor(total * this.monthCount * rate);
+      rate = rate / 12;
+      return Math.floor(total + (total * this.monthCount * rate));
     }
   }
 

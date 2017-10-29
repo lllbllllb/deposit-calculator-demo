@@ -19,12 +19,19 @@ export class MainPageComponent implements OnInit {
     'chf': 'Швейцарский франк'
   };
 
+  data: any;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get<any[]>('/api/currentExchangeRate')
       .subscribe(curr => {
         this.fillRate(curr);
+      });
+
+    this.http.get<any[]>('api/currDateRate')
+      .subscribe(c => {
+        this.fillCurrDataRate(c);
       });
   }
 
@@ -46,6 +53,37 @@ export class MainPageComponent implements OnInit {
     }
 
     this.currentExchangeRate = Observable.of(buff);
+  }
+
+  fillCurrDataRate(data?: any[]) {
+    let buffLabels = [];
+    const buffDatasets = [];
+
+    for (const d of data) {
+      buffLabels = d.dates;
+      const dataset = {
+        label: this.currencies[d.code],
+        data: d.data,
+        fill: false,
+        borderColor: this.getColor(d.code)
+      };
+
+      buffDatasets.push(dataset);
+    }
+
+    this.data = {
+      labels: buffLabels,
+      datasets: buffDatasets
+    };
+  }
+
+  getColor(code: string) {
+    switch (code) {
+      case 'usd': return '#2962FF';
+      case 'eur': return '#00BFA5';
+      case 'gbr': return '#616161';
+      case 'chf': return '#D50000';
+    }
   }
 }
 

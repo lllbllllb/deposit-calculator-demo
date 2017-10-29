@@ -5,77 +5,118 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
 
     const currentExchangeRate: any[] = [
-      { id: 0,
+      {
+        id: 0,
         code: 'usd',
         rateBuy: '57,25',
         rateSal: '59,00'
       },
-      { id: 1,
+      {
+        id: 1,
         code: 'eur',
         rateBuy: '67,00',
         rateSal: '67,75'
       },
-      { id: 2,
+      {
+        id: 2,
         code: 'gbr',
         rateBuy: '75,00',
         rateSal: '79,00'
       },
-      { id: 3,
+      {
+        id: 3,
         code: 'chf',
         rateBuy: '57,25',
         rateSal: '60,00'
       }
     ];
 
+    const currDateRate: any[] = [
+      {
+        id: 0,
+        code: 'usd',
+        dates: this.generateDates(),
+        data: this.generateVal('usd')
+      },
+      {
+        id: 1,
+        code: 'eur',
+        dates: this.generateDates(),
+        data: this.generateVal('eur')
+      },
+      {
+        id: 2,
+        code: 'gbr',
+        dates: this.generateDates(),
+        data: this.generateVal('gbr')
+      },
+      {
+        id: 3,
+        code: 'chf',
+        dates: this.generateDates(),
+        data: this.generateVal('chf')
+      }
+    ];
+
     const deposits: Deposit[] = [
-      { id: 0,
-        name: 'Восхитительный',
-        rub: 8,
-        usd: 2,
-        eur: 0.8,
+      {
+        id: 0,
+        name: 'Вклад «Пополняемый доход»',
+        rub: 7,
+        usd: 0.6,
+        eur: 0.11,
+        refill: true,
+        withdrawal: false,
+        pensioner: 0.25,
+        onlineopn: 0.25,
+        capital: true,
+        minTermSupport: 3,
+        maxTermSupport: 36,
+        description: 'Увеличиваете сумму вклада – увеличиваете свой доход!'
+      },
+      {
+        id: 1,
+        name: 'Вклад «Большие возможности»',
+        rub: 6,
+        usd: 0.75,
+        eur: 0.1,
         refill: true,
         withdrawal: true,
         pensioner: 0.25,
         onlineopn: 0.25,
+        capital: false,
+        minTermSupport: 3,
+        maxTermSupport: 72,
+        description: 'Это вклад, предоставляющий большие возможности по управлению ' +
+          'средствами, и, при этом, предлагающий привлекательную ставку.'
+      },
+      {
+        id: 2,
+        name: 'Вклад «Высокий доход»',
+        rub: 7.75,
+        usd: 0.75,
+        eur: 0.12,
+        refill: false,
+        withdrawal: false,
+        pensioner: 0.25,
+        onlineopn: 0.25,
         capital: true,
-        minTermSupport: 8,
-        maxTermSupport: 24,
-        description: 'Вы не останетесь равнодушным взяв этот кредит.' },
-      { id: 1,
-        name: 'Прямой',
-        rub: 7.5,
-        usd: 2,
-        eur: 0.8,
-        refill: true,
-        withdrawal: true,
-        capital: true,
-        minTermSupport: 12,
-        maxTermSupport: 24,
-        description: 'Вы не останетесь равнодушным взяв этот кредит.' },
-      { id: 2,
-        name: 'Надежный',
-        rub: 8.5,
-        usd: 2,
-        eur: 0.8,
-        refill: true,
-        withdrawal: true,
-        capital: true,
-        minTermSupport: 12,
-        maxTermSupport: 36,
-        description: 'Вы не останетесь равнодушным взяв этот кредит.' },
+        minTermSupport: 1,
+        maxTermSupport: 72,
+        description: 'Классический срочный вклад с максимальной доходностью среди вкладов, предлагаемых Банком.'
+      },
       {
         id: 3,
-        name: 'Максимальный процент',
+        name: 'Вклад «Стратегия лидерства»',
         rub: 8,
-        usd: 1.8,
-        eur: 1,
-        refill: true,
-        withdrawal: true,
-        capital: true,
-        minTermSupport: 6,
-        maxTermSupport: 24,
-        description: 'Вклад для получения максимального дохода – до 8,5% в рублях'
-          + ' (при открытии вклада в Интернет-банке), до 1,65% в долларах США, до 0,8% в евро'
+        usd: 0,
+        eur: 0,
+        refill: false,
+        withdrawal: false,
+        capital: false,
+        minTermSupport: 7,
+        maxTermSupport: 7,
+        description: 'Для эффективного безрискового вложения средств и получения высокого дохода.'
       },
       {
         id: 4,
@@ -93,7 +134,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 5,
         name: 'Мультивалютный',
-        rub: 8,
+        rub: 8.7,
         usd: 2.1,
         eur: 0.8,
         refill: true,
@@ -144,6 +185,42 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
 
-    return { deposits, currentExchangeRate };
+    return { deposits, currentExchangeRate, currDateRate };
+  }
+
+  generateDates(): any[] {
+    const buff = [];
+    for (let i = 1; i < 31; i++) {
+      ('' + i).length === 1 ? buff.push('0' + i + ' октября') : buff.push(i + ' октября');
+    }
+
+    return buff;
+  }
+
+  generateVal(code: string): number[] {
+    const buff = [];
+
+    for (let i = 1; i < 31; i++) {
+      switch (code) {
+        case 'usd': {
+          buff.push(Math.round((Math.random() * 11 + 55) * 100) / 100);
+          break;
+        }
+        case 'eur': {
+          buff.push(Math.round((Math.random() * 11 + 65) * 100) / 100);
+          break;
+        }
+        case 'gbr': {
+          buff.push(Math.round((Math.random() * 11 + 73) * 100) / 100);
+          break;
+        }
+        case 'chf': {
+          buff.push(Math.round((Math.random() * 11 + 56) * 100) / 100);
+          break;
+        }
+      }
+    }
+
+    return buff;
   }
 }

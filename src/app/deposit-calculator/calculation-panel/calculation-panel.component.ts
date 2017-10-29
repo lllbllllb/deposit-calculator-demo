@@ -40,7 +40,7 @@ export class CalculationPanelComponent implements OnInit {
   ngOnInit() {
     this.moneyCount = 600000;
     this.currency = 'rub';
-    this.monthCount = 12;
+    this.monthCount = 7;
     this.capitalization = false,
     this.pensioner = false,
     this.onlineopn = true,
@@ -78,7 +78,7 @@ export class CalculationPanelComponent implements OnInit {
     let monthVar = this.monthNames[3];
     if (del === 1 && e.value !== 11) {
       monthVar = this.monthNames[1];
-    } else if (del > 1 && del < 5 && e.value < 10 && e.value > 20) {
+    } else if (del > 1 && del < 5 && e.value !== 12 && e.value !== 13 && e.value !== 14) {
       monthVar = this.monthNames[2];
     }
     this.formattedMonthCount = e.value + ' ' + monthVar;

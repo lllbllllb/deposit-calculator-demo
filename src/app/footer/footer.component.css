@@ -9,3 +9,48 @@
           color: white;
           font-weight: lighter;
 }
+
+.footer-soc1 {
+          background: url(../../assets/images/gp-big1.png) left no-repeat;
+}
+
+.footer-soc1:hover {
+          background: url(../../assets/images/gp-big.png) left no-repeat;
+}
+
+.footer-soc2 {
+          background: url(../../assets/images/it-big1.png) left no-repeat;
+}
+.footer-soc2:hover {
+          background: url(../../assets/images/it-big.png) left no-repeat;
+}
+
+.footer-soc3 {
+          background: url(../../assets/images/vk-big1.png) left no-repeat;
+}
+
+.footer-soc3:hover {
+          background: url(../../assets/images/vk-big.png) left no-repeat;
+}
+
+.footer-soc4 {
+          background: url(../../assets/images/fb-big1.png) left no-repeat;
+}
+.footer-soc4:hover {
+          background: url(../../assets/images/fb-big.png) left no-repeat;
+}
+
+.footer-soc5 {
+          background: url(../../assets/images/tw-big1.png) left no-repeat;
+}
+.footer-soc5:hover {
+          background: url(../../assets/images/tw-big.png) left no-repeat;
+}
+
+.footer-link-img {
+          height: 32px;
+          width: 32px;
+          margin: 0 50px 20px 0;
+          display: block;
+          float: left;
+} 
